@@ -4,68 +4,54 @@ body{
 }
 
 .navbar{
-    height: 130px;
-    width: auto;
-    margin-top: 0px;
+    position: absolute;
+    width: 1378px;
+    height: 96px;
+    top: 16px;
+    left: 31px;
     box-sizing: border-box;
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 10px;
     padding-left: 200px;
+    background-color: transparent;
 }
 
-#rolex1{
+.brand-title{
+    position: absolute;
+    left: 128px;
+    top: 30px;
     font-family: 'Poppins', sans-serif;
-    /* position: absolute;
-    font-weight: bold;
-    margin-left: 150px;
-    margin-top: 70px; */
     font-size: 30px;
     color: grey;
-    font-weight: bold;
+    font-weight: bolder;
+    margin: 0;
 }
 
-#home{
-    text-decoration: none;
-    position: absolute;
-    margin-left: 500px;
-    color: grey;
-    margin-top: 37px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+.actived{
+    color: #48695C;
+    font-weight: 500;
 }
 
-#best{
+.navbar a{
+    font-family: 'poppins', sans-serif;
     text-decoration: none;
-    position: absolute;
-    margin-left: 605px;
-    color: grey;
-    margin-top: 37px;
+    color: #888888;
     font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 0 35px;
+    line-height: 36px;
+    transition: ease 0.3s;
 }
 
-#standard{
-    text-decoration: none;
-    position: absolute;
-    margin-left: 760px;
-    color: grey;
-    margin-top: 37px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+.navbar a:hover{
+    color: #48695C;
+    font-weight: 600;
 }
 
-#discount{
-    text-decoration: none;
-    position: absolute;
-    margin-left: 900px;
-    color: grey;
-    margin-top: 37px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+.navbar a:nth-child(2){
+    margin-left: 600px;
 }
 
 #kotak1{
