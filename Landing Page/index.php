@@ -21,32 +21,28 @@ include '../koneksi.php'
     
     <div class="navbar">
 
-        <p id="rolex1">ROLEX</p>
-        <a href="#"><p id="home">HOME</p></a>
-        <a href="#"><p id="best">Best Seller</p></a>
-        <a href="#"><p id="standard">Standard</p></a>
-        <a href="#"><p id="discount">Discount</p></a>
+        <p class="brand-title">ROLEX</p>
+        <a href="index.ph"><p class="actived" class="home">HOME</p></a>
+        <a href="#"><p class="best">Best Seller</p></a>
+        <a href="../menwatchlist/index.php"><p class="men">Men</p></a>
+        <a href="../women-watch/index.php"><p class="women">Women</p></a>
 
     </div>
 
-    <div id="kotak1">
+    <div id="hero">
 
     <?php
-        $query = " select * from hero_page ";
+        $query = "SELECT * from hero_page ORDER BY DESC limit 1";
         $result = mysqli_query($connect, $query);
  
         while ($data = mysqli_fetch_assoc($result)) {
         ?>
-            <img id="gambar1" src="../image/<?php echo $data['gambar']; ?>">
-            <p id="kata1"><?php echo $data['judul']; ?></p>
-        <p id="kata2"><?php echo $data['sub_judul']; ?></p>
+            <img class="hero-img" src="../image/<?php echo $data['gambar']; ?>">
+            <p class="hero-title"><?php echo $data['judul']; ?></p>
+        <p class="hero-subtitle"><?php echo $data['sub_judul']; ?></p>
         <?php
         }
-?>
-<!--         
-        <img src="../image/orangcool.png" alt="" id="gambar1">
-        <p id="kata1">Rolex will make you <br> be your self</p>
-        <p id="kata2">ROLEX  Jam tangan Rolex dibuat <br>    dari bahan mentah terbaik dan <br> dirakit dengan perhatian yang <br> mendalam terhadap detail. <br> Setiap komponen</p> -->
+    ?>
     </div>
 
    <div id="kotak5">
