@@ -1,3 +1,7 @@
+<?php
+include '../koneksi.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +31,22 @@
 
     <div id="kotak1">
 
-        
+    <?php
+        $query = " select * from hero_page ";
+        $result = mysqli_query($connect, $query);
+ 
+        while ($data = mysqli_fetch_assoc($result)) {
+        ?>
+            <img id="gambar1" src="../image/<?php echo $data['gambar']; ?>">
+            <p id="kata1"><?php echo $data['judul']; ?></p>
+        <p id="kata2"><?php echo $data['sub_judul']; ?></p>
+        <?php
+        }
+?>
+<!--         
         <img src="../image/orangcool.png" alt="" id="gambar1">
         <p id="kata1">Rolex will make you <br> be your self</p>
-        <p id="kata2">ROLEX  Jam tangan Rolex dibuat <br>    dari bahan mentah terbaik dan <br> dirakit dengan perhatian yang <br> mendalam terhadap detail. <br> Setiap komponen</p>
-
-
+        <p id="kata2">ROLEX  Jam tangan Rolex dibuat <br>    dari bahan mentah terbaik dan <br> dirakit dengan perhatian yang <br> mendalam terhadap detail. <br> Setiap komponen</p> -->
     </div>
 
    <div id="kotak5">
