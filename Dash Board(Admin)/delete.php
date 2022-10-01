@@ -1,7 +1,7 @@
 <?php
 include '../koneksi.php';
 
-if(isset($_GET['id_barang'])) {
+if(isset($_GET['id'])) {
     header('location: landingpage.php');
 }
 

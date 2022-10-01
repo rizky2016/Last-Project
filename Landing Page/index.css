@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); /*poppins*/
+
 body{
     background: linear-gradient(242.95deg, #06070A 84.81%, #27262E 100%);
     background-size: cover;
+    height: 1080px;
 }
 
 .navbar{
@@ -54,59 +57,123 @@ body{
     margin-left: 600px;
 }
 
-#kotak1{
-    height: 400px;
-    width: 1090px;
-    background: linear-gradient(264.89deg, #06070A 84.81%, #27262E 100%);
-    box-shadow: 4px 4px 4px rgba(71, 70, 70, 0.25);
+.hero{
+    position: absolute;
+    width: 1420px;
+    height: 500px;
+    left: 3%;
+    top: 18%;
+    background: -webkit-linear-gradient(214.89deg, #06070A 84.81%, #27262E 100%);
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 4px;
-    margin-left: 200px;
+    border:1px solid #808080;
     box-sizing: border-box;
-    padding-left: 200px;
-}
-
-#gambar1{
-   height: 400px;
-}
-
-#kata1{
-    color: white;
-    position: absolute;
-   margin-left: 400px;
-    margin-top: -270px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-}
-
-#kata2{
-    color: white;
-    position: absolute;
-   margin-left: 400px;
-    margin-top: -220px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: lighter;
-}
-
-#kotak5{
     display: flex;
+    align-items: center;
 }
 
-#kotak3{
-    background: rgba(53, 56, 56, 0.7);
-    height: 200px;
-    width: 520px;
-    box-sizing: border-box;
-    margin-top: 20px;
+.hero-img{
+    height: 500px;
+    width: 297px;
     margin-left: 200px;
 }
 
-#kotak4{
-    background: rgba(53, 56, 56, 0.7);
-    height: 200px;
-    width: 520px;
+.hero-img img{
+    height: 100%;
+    padding-top: 10px;
+}
+
+.hero-text{
+    margin-left: 180px;
+}
+
+.card-text{
+display: block;
+padding-left: 50px;
+}
+
+.hero-text p:nth-child(1){
+    color: #DcDcDc;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'poppins', sans-serif;
+    width: 268px;
+    height: fit-content;
+    line-height: 30px;
+    margin-bottom: 8px;
+}
+
+.hero p:nth-last-child(1){
+    color: #808080;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: 'poppins', sans-serif;
+    width: 460px;
+    height: fit-content;
+    line-height: 24px;
+}
+
+.news-page{
+    position: absolute;
+    width: 1420px;
+    height: 340px;
+    left: 3%;
+    top: 82%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.news, .trending{
+    background: #2D2F31;
+    height: 100%;
+    width: 700px;
     box-sizing: border-box;
-    margin-top: 20px;
-    margin-left: 50px;
+    border: 1px solid #7d7d7d;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.news-image, .trending-image{
+    height: 72%;
+    width: 38%;
+    background-color: #626161;
+    border-radius: 5px;
+    box-shadow: 24px -25px 4px -1px #464748;
+    border: #464748 thin 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.news-image img, .trending-image img{
+    height: 98%;
+}
+
+.news p{
+    display: block;
+}
+
+.news p:nth-child(1), .trending p:nth-child(1){
+    color: #dcdcdc;
+    font-family: 'poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    width: 100%;
+    margin-top: -20%;
+    margin-bottom: 0;
+}
+
+.news p:nth-child(2), .trending p:nth-child(2){
+    color: #48695C;
+    font-size: 24px;
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
 }
 
 #kotak6{
@@ -206,12 +273,35 @@ body{
     margin-top: -20px;
 }
 
-#footer1{
-    display: flex;
-    text-decoration: none;
+.footer{
+    position: absolute;
+    bottom: -66.8%;
+    left: 0;
+    height: 225px;
+    width: 100%;
+    background-color: #2B2D30;
 }
 
-li{
+.footer-title{
+    margin-top: 30px;
+    text-align: center;
+    color: #888888;
+    font-family: 'poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.contact{
+    position: absolute;
+    left: 36.5%;
+}
+
+.footer1{
+    display: flex;
+}
+
+.footer1 a{
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,12 +313,9 @@ li{
     height: 45px;
     font-size: 24px;
     color: #888888;
+    transition: ease 0.3s;
 }
 
-#footer{
-    position: absolute;
-    bottom: -20%;
-    left: 36.5%;
-    
+.footer1 a:hover{
+    color: #48695C;
 }
-
