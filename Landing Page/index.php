@@ -32,7 +32,7 @@ include '../koneksi.php'
     <div id="kotak1">
 
     <?php
-        $query = " select * from hero_page ";
+        $query = "SELECT * FROM hero_page ORDER BY id DESC LIMIT 1;";
         $result = mysqli_query($connect, $query);
  
         while ($data = mysqli_fetch_assoc($result)) {

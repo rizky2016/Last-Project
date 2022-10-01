@@ -1,3 +1,7 @@
+<?php
+include 'koneksi.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +32,25 @@
             <table>
                 <tr>
                     <td>
-                        <a href=""><div class="watch">
+                    <?php
+        $query = " select * from hero_page where id='1'";
+        $result = mysqli_query($connect, $query);
+ 
+        while ($data = mysqli_fetch_assoc($result)) {
+        ?>
+            <a href=""><div class="watch">
+                <img src="../image/<?php echo $data['gambar']; ?>">
+            </div></a>
+            <p><?php echo $data['nama']; ?></p>
+        <p ><?php echo $data['harga']; ?></p>
+        <?php
+        }
+?>
+                        <!-- <a href=""><div class="watch">
                             <img  src="../image/jam1.png">
                         </div></a>
                         <p>Rolex GMT-Master II</p>
-                        <p>$30.000</p>
+                        <p>$30.000</p> -->
                     </td>
                     <td>
                         <div class="watch">

@@ -1,5 +1,16 @@
 <?php
-include '../koneksi.php'
+include '../koneksi.php';
+
+
+$id = $_GET['id'];
+$sql = "SELECT * FROM hero_page WHERE id = '$id'";
+$query = mysqli_query($connect, $sql);
+$data = mysqli_fetch_assoc($query);
+
+if(mysqli_num_rows($query) < 1) {
+    die("data tidak ditemukan");
+}
+
 ?>
 
 <!doctype html>
@@ -8,15 +19,12 @@ include '../koneksi.php'
     <head>
         
         <meta charset="utf-8" />
-        <title>Advance Tables | Vuesy - Admin & Dashboard Template</title>
+        <title>Basic Elements | Vuesy - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        
-        <!-- gridjs css -->
-        <link rel="stylesheet" href="assets/libs/gridjs/theme/mermaid.min.css">
 
         <!-- Bootstrap Css -->
         <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -27,7 +35,6 @@ include '../koneksi.php'
 
     </head>
 
-    
     <body data-topbar="dark" data-sidebar="dark" data-layout-mode="dark">
 
         <!-- Begin page -->
@@ -291,7 +298,7 @@ include '../koneksi.php'
                             <li class="menu-title" data-key="t-menu">Menu</li>
     
                             <li>
-                                <a href="index.html">
+                                <a href="#">
                                     <i class="bx bx-home-circle nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Dashboard</span>
                                 </a>
@@ -300,7 +307,7 @@ include '../koneksi.php'
                             <li class="menu-title" data-key="t-applications">Applications</li>
     
                             <li class="mm-active">
-                                <a href="landingpage.html">
+                                <a href="landingpage.php">
                                     <i class="bx bxl-trello nav-icon"></i>
                                     <span class="menu-item" data-key="t-calendar">Landing Page</span>
                                 </a>
@@ -336,39 +343,49 @@ include '../koneksi.php'
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
-                <a class="btn btn-info btn-rounded m-4" href="up_img.html">UPDATE</a>
-                
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Sub-Judul</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                <?php
-                    $sql = "SELECT * FROM hero_page";
-                    $query = mysqli_query($connect,$sql);
-                    while($hero_p = mysqli_fetch_array($query)){
-                        echo "<tr>";
-                        echo "<td>".$hero_p['id']."</td>";
-                        echo "<td>".$hero_p['gambar']."</td>";
-                        echo "<td>".$hero_p['judul']."</td>";
-                        echo "<td>".$hero_p['sub_judul']."</td>";
 
-                        echo "<td>";
-                        echo "<a class='btn btn-outline-success' href='formedit.php?id=".$hero_p['id']."'>Edit</a> | ";
-                        echo "<a class='btn btn-outline-warning' href='delete.php?id=".$hero_p['id']."'>Delete</a>";
-                        echo "</td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                    </tbody>
-                  </table>
-                <!-- End Page-content -->
+                <div class="page-content">
+                    <div class="container-fluid">
+                            <div class="col-xl-8">
+                                <div class="card">
+                                    <div class="card-header justify-content-between d-flex align-items-center">
+                                        <h4 class="card-title">Edit Content</h4>
+                                    </div><!-- end card header -->
+                                    <div class="card-body">          
+                                    <form action="edit.php" method="post" enctype="multipart/form-data">
+                                                <input class="form-control" name="id" type="hidden" id="example-text-input" value="<?php echo $data['id']?>"/>
+                                        <div class="mb-3 row">
+                                            <label for="example-search-input" class="col-md-2 col-form-label">Masukkan File Gambar</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="file" name="image" id="example-search-input" value="<?php echo $data['gambar']?>"/>
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="mb-3 row">
+                                            <label for="example-email-input" class="col-md-2 col-form-label">Masukkan Judul</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" name="judul" id="example-email-input" value="<?php echo $data['judul']?>"/>
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="mb-3 row">
+                                            <label for="example-url-input" class="col-md-2 col-form-label">Masukkan Sub Judul</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" name="sub_judul" id="example-url-input" value="<?php echo $data['sub_judul']?>"/>
+                                            </div>
+                                        <div class="row justify-content-end">
+                                            <div class="col-sm-9">
+                                                <div>
+                                                    <input type="submit" name="edit" value="Upload" class="btn btn-primary w-md">
+                                                </div>
+                                            </div><!-- end col -->
+                                        </div><!-- end row -->
+                                    </form><!-- end form -->
+                                    </div>
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                        <!-- End Form Layout -->
+                    </div> <!-- container-fluid -->
+                </div><!-- End Page-content -->
 
                 
                 <footer class="footer">
@@ -403,89 +420,90 @@ include '../koneksi.php'
                     </a>
                 </div>
 
-            <!-- Settings -->
-            <hr class="m-0" />
+                <!-- Settings -->
+                <hr class="m-0" />
 
-            <div class="p-4">
-                <h6 class="mt-4 mb-3">Layout Mode</h6>
+                <div class="p-4">
+                    <h6 class="mt-4 mb-3">Layout Mode</h6>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-mode"
-                        id="layout-mode-light" value="light">
-                    <label class="form-check-label" for="layout-mode-light">Light</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-mode"
-                        id="layout-mode-dark" value="dark">
-                    <label class="form-check-label" for="layout-mode-dark">Dark</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-mode"
+                            id="layout-mode-light" value="light">
+                        <label class="form-check-label" for="layout-mode-light">Light</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-mode"
+                            id="layout-mode-dark" value="dark">
+                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Layout Width</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-width"
+                            id="layout-width-fluid" value="fluid" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
+                        <label class="form-check-label" for="layout-width-fluid">Fluid</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="layout-width"
+                            id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
+                        <label class="form-check-label" for="layout-width-boxed">Boxed</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3">Topbar Color</h6>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="topbar-color"
+                            id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
+                        <label class="form-check-label" for="topbar-color-light">Light</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="topbar-color"
+                            id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
+                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
+                    </div>
+
+                    <div id="sidebar-setting">
+                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Size</h6>
+
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
+                        <label class="form-check-label" for="sidebar-size-default">Default</label>
+                    </div>
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
+                        <label class="form-check-label" for="sidebar-size-compact">Compact</label>
+                    </div>
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-size"
+                            id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
+                        <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
+                    </div>
+
+                    <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Color</h6>
+
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
+                        <label class="form-check-label" for="sidebar-color-light">Light</label>
+                    </div>
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
+                        <label class="form-check-label" for="sidebar-color-dark">Dark</label>
+                    </div>
+                    <div class="form-check sidebar-setting mt-1">
+                        <input class="form-check-input" type="radio" name="sidebar-color"
+                            id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
+                        <label class="form-check-label" for="sidebar-color-brand">Brand</label>
+                    </div>
                 </div>
 
-                <h6 class="mt-4 mb-3">Layout Width</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-width"
-                        id="layout-width-fluid" value="fluid" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
-                    <label class="form-check-label" for="layout-width-fluid">Fluid</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="layout-width"
-                        id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
-                    <label class="form-check-label" for="layout-width-boxed">Boxed</label>
                 </div>
 
-                <h6 class="mt-4 mb-3">Topbar Color</h6>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="topbar-color"
-                        id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
-                    <label class="form-check-label" for="topbar-color-light">Light</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="topbar-color"
-                        id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
-                    <label class="form-check-label" for="topbar-color-dark">Dark</label>
-                </div>
-
-                <div id="sidebar-setting">
-                <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Size</h6>
-
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-size"
-                        id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
-                    <label class="form-check-label" for="sidebar-size-default">Default</label>
-                </div>
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-size"
-                        id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
-                    <label class="form-check-label" for="sidebar-size-compact">Compact</label>
-                </div>
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-size"
-                        id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
-                    <label class="form-check-label" for="sidebar-size-small">Small (Icon View)</label>
-                </div>
-
-                <h6 class="mt-4 mb-3 sidebar-setting">Sidebar Color</h6>
-
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-color"
-                        id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
-                    <label class="form-check-label" for="sidebar-color-light">Light</label>
-                </div>
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-color"
-                        id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
-                    <label class="form-check-label" for="sidebar-color-dark">Dark</label>
-                </div>
-                <div class="form-check sidebar-setting mt-1">
-                    <input class="form-check-input" type="radio" name="sidebar-color"
-                        id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
-                    <label class="form-check-label" for="sidebar-color-brand">Brand</label>
-                </div>
-            </div>
-            </div>
-        </div> <!-- end slimscroll-menu-->
-    </div>
+            </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
 
@@ -497,11 +515,6 @@ include '../koneksi.php'
         <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/feather-icons/feather.min.js"></script>
-        
-        <!-- gridjs js -->
-        <script src="assets/libs/gridjs/gridjs.umd.js"></script>
-
-        <script src="assets/js/pages/gridjs.init.js"></script>
 
         <script src="assets/js/app.js"></script>
 

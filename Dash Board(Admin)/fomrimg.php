@@ -291,7 +291,7 @@ include '../koneksi.php'
                             <li class="menu-title" data-key="t-menu">Menu</li>
     
                             <li>
-                                <a href="index.html">
+                                <a href="#">
                                     <i class="bx bx-home-circle nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Dashboard</span>
                                 </a>
@@ -343,8 +343,8 @@ include '../koneksi.php'
                       <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Image</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Sub-Judul</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Harga</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -352,16 +352,16 @@ include '../koneksi.php'
                 <?php
                     $sql = "SELECT * FROM hero_page";
                     $query = mysqli_query($connect,$sql);
-                    while($hero_p = mysqli_fetch_array($query)){
+                    while($data = mysqli_fetch_array($query)){
                         echo "<tr>";
-                        echo "<td>".$hero_p['id']."</td>";
-                        echo "<td>".$hero_p['gambar']."</td>";
-                        echo "<td>".$hero_p['judul']."</td>";
-                        echo "<td>".$hero_p['sub_judul']."</td>";
+                        echo "<td>".$data['id']."</td>";
+                        echo "<td>".$data['gambar']."</td>";
+                        echo "<td>".$data['nama']."</td>";
+                        echo "<td>".$data['harga']."</td>";
 
                         echo "<td>";
-                        echo "<a class='btn btn-outline-success' href='formedit.php?id=".$hero_p['id']."'>Edit</a> | ";
-                        echo "<a class='btn btn-outline-warning' href='delete.php?id=".$hero_p['id']."'>Delete</a>";
+                        echo "<a class='btn btn-outline-success' href='formedit.php?id=".$data['id']."'>Edit</a> | ";
+                        echo "<a class='btn btn-outline-warning' href='hapus.php?id=".$data['id']."'>Delete</a>";
                         echo "</td>";
                         echo "</tr>";
                     }
