@@ -314,7 +314,7 @@ include '../koneksi.php'
                             </li>
     
                             <li>
-                                <a href="apps-kanban-board.html">
+                                <a href="womenwatch.php">
                                     <i class="bx bxs-watch-alt nav-icon"></i>
                                     <span class="menu-item" data-key="t-kanban">Women Watch</span>
                                 </a>

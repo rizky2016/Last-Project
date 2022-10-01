@@ -19,7 +19,7 @@ include '../koneksi.php'
 
         <p class="brand-title">Rolex</p>
         <a href="index.ph"><p class="actived" class="home">HOME</p></a>
-        <a href="#"><p class="best">Best Seller</p></a>
+        <a href="../bestsellerpage/bestsell.html"><p class="best">Best Seller</p></a>
         <a href="../menwatchlist/index.php"><p class="men">Men</p></a>
         <a href="../women-watch/index.php"><p class="women">Women</p></a>
 

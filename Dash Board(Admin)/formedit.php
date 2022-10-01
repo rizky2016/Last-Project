@@ -1,7 +1,4 @@
 <?php
-<<<<<<<< HEAD:Dash Board(Admin)/form_img2.php
-include '../koneksi.php'
-========
 include '../koneksi.php';
 
 
@@ -14,7 +11,6 @@ if(mysqli_num_rows($query) < 1) {
     die("data tidak ditemukan");
 }
 
->>>>>>>> 5eeb52103694660baf4e222ed44a3a284227a566:Dash Board(Admin)/formedit.php
 ?>
 
 <!doctype html>
@@ -347,41 +343,6 @@ if(mysqli_num_rows($query) < 1) {
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
-<<<<<<<< HEAD:Dash Board(Admin)/form_img2.php
-                <a class="btn btn-info btn-rounded m-4" href="up_img2.html">UPDATE</a>
-                
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Harga</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                <?php
-                    $sql = "SELECT * FROM women_watch";
-                    $query = mysqli_query($connect,$sql);
-                    while($data = mysqli_fetch_array($query)){
-                        echo "<tr>";
-                        echo "<td>".$data['id']."</td>";
-                        echo "<td>".$data['gambar']."</td>";
-                        echo "<td>".$data['nama']."</td>";
-                        echo "<td>".$data['harga']."</td>";
-
-                        echo "<td>";
-                        echo "<a class='btn btn-outline-success' href='formedit.php?id=".$data['id']."'>Edit</a> | ";
-                        echo "<a class='btn btn-outline-warning' href='hapus.php?id=".$data['id']."'>Delete</a>";
-                        echo "</td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                    </tbody>
-                  </table>
-                <!-- End Page-content -->
-========
 
                 <div class="page-content">
                     <div class="container-fluid">
@@ -425,7 +386,6 @@ if(mysqli_num_rows($query) < 1) {
                         <!-- End Form Layout -->
                     </div> <!-- container-fluid -->
                 </div><!-- End Page-content -->
->>>>>>>> 5eeb52103694660baf4e222ed44a3a284227a566:Dash Board(Admin)/formedit.php
 
                 
                 <footer class="footer">
