@@ -9,11 +9,7 @@ include '../koneksi.php'
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,700;1,100;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css?<?php echo time(); ?>" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
@@ -21,7 +17,7 @@ include '../koneksi.php'
     
     <div class="navbar">
 
-        <p class="brand-title">ROLEX</p>
+        <p class="brand-title">Rolex</p>
         <a href="index.ph"><p class="actived" class="home">HOME</p></a>
         <a href="#"><p class="best">Best Seller</p></a>
         <a href="../menwatchlist/index.php"><p class="men">Men</p></a>
@@ -29,52 +25,81 @@ include '../koneksi.php'
 
     </div>
 
-    <div id="hero">
+    <div class="hero">
 
     <?php
-        $query = "SELECT * from hero_page ORDER BY DESC limit 1";
+        $query = "SELECT * from hero_page WHERE id ='1'";
         $result = mysqli_query($connect, $query);
  
         while ($data = mysqli_fetch_assoc($result)) {
-        ?>
-            <img class="hero-img" src="../image/<?php echo $data['gambar']; ?>">
-            <p class="hero-title"><?php echo $data['judul']; ?></p>
-        <p class="hero-subtitle"><?php echo $data['sub_judul']; ?></p>
-        <?php
+        ?>  
+        <div class="hero-img">
+            <img src="../image/<?php echo $data['gambar']; ?>">
+        </div>
+        <div class="hero-text">
+            <p><?php echo $data['judul']; ?></p>
+            <p><?php echo $data['sub_judul']; ?></p>
+        </div>
+        
+    <?php
         }
     ?>
     </div>
 
-   <div id="kotak5">
-
-    <div id="kotak3">
-        <div id="kotak6"></div>
-        <div id="kotak7"></div>
-        <img src="../image/jam1.png" alt="" id="gambar2">
-        <p id="kata3">Bold Chronograph <br> Rose Dial Men <br> Watch</p>
-        <p id="kata4">$440.00</p>
+   <div class="news-page">
+        
+    <div class="news">
+    <?php
+        $query = "SELECT * from hero_page WHERE id='2'";
+        $result = mysqli_query($connect, $query);
+ 
+        while ($data = mysqli_fetch_assoc($result)) {
+        ?>
+        <div class="card-text">
+        <p><?php echo $data['judul']; ?></p>
+        <p><?php echo $data['sub_judul']; ?></p>
+        </div>
+        <div class="news-image">
+            <img src="../image/<?php echo $data['gambar']; ?>">
+        </div>
+    <?php
+    }
+    ?>
     </div>
 
-    <div id="kotak4">
-        <div id="kotak9"></div>
-        <img src="../image/gambar3.jpg" alt="" id="gambar3">
-        <p id="kata9">Rolex Cosmograph <br> Daytona</p>
-        <p id="kata10">$440.00</p>
+    <div class="trending">
+    <?php
+        $query = "SELECT * from hero_page WHERE id ='3'";
+        $result = mysqli_query($connect, $query);
+ 
+        while ($data = mysqli_fetch_assoc($result)) {
+        ?>
+        <div class="card-text">
+        <p><?php echo $data['judul']; ?></p>
+        <p><?php echo $data['sub_judul']; ?></p>
+        </div>
+        <div class="trending-image">
+            <img src="../image/<?php echo $data['gambar']; ?>">
+        </div>
+   <?php
+    }
+    ?>
     </div>
 
    </div>
 
-   <div id="kotak8">
-    <p id="kata5">ROLEX</p>
-    <div id="footer">
-        <ul id="footer1">
-            <li id="li"><i class="fa-brands fa-facebook-f"></i></li>
-            <li id="li"><i class="fa-brands fa-twitter"></i></li>
-            <li id="li"><i class="fa-brands fa-instagram"></i></li>
-            <li id="li"><i class="fa-regular fa-envelope"></i></li>
-        </ul>
+   <div class="footer">
+        <p class="footer-title">ROLEX</p>
+        <div class="contact">
+            <ul class="footer1">
+                <a href=""><li><i class="fa-brands fa-facebook-f"></i></li></a>
+                <a href=""><li><i class="fa-brands fa-twitter"></i></li></a>
+                <a href=""><li><i class="fa-brands fa-instagram"></i></li></a>
+                <a href=""><li><i class="fa-regular fa-envelope"></i></li></a>
+            </ul>
+        </div>
+       </div>
     </div>
-   </div>
 
 </body>
 </html>
