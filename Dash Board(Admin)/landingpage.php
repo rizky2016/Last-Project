@@ -291,7 +291,7 @@ include '../koneksi.php'
                             <li class="menu-title" data-key="t-menu">Menu</li>
     
                             <li>
-                                <a href="#">
+                                <a href="index.html">
                                     <i class="bx bx-home-circle nav-icon"></i>
                                     <span class="menu-item" data-key="t-dashboard">Dashboard</span>
                                 </a>
@@ -361,7 +361,7 @@ include '../koneksi.php'
 
                         echo "<td>";
                         echo "<a class='btn btn-outline-success' href='formedit.php?id=".$hero_p['id']."'>Edit</a> | ";
-                        echo "<a class='btn btn-outline-warning' href='hapus.php?id=".$hero_p['id']."'>Delete</a>";
+                        echo "<a class='btn btn-outline-warning' href='delete.php?id=".$hero_p['id']."'>Delete</a>";
                         echo "</td>";
                         echo "</tr>";
                     }

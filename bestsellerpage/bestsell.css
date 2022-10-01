@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    background-color: black;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .logo {
+    color: gray;
+    height: 60px;
+    line-height: 60px;
+    font-size: 23px;
+    float: left;
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+header nav ul li a {
+    color: rgb(83, 83, 83);
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-decoration: none;
+    display: block;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: green;
+    background-color: gray;
+}
+
+.title1 {
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    color: white;
+    position: absolute;
+    font-size: 12px;
+    width: 100%;
+    height: 30%;
+    float: left;
+    font-weight: bold;
+    line-height: 5%;
+}
+
+.box1 {
+    margin-top: 11%;
+    position: absolute;
+    left: 9%;
+    width: 85%;
+    height: 70%;
+    background-color: #3D3C42;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.daytonar {
+    height: 98%;
+    width: 34%;
+    margin-top: 1px;
+    margin-left: 2%;
+    position: absolute;
+}
+
+h2 {
+    margin-top: 4%;
+    font-size: 30px;
+    color: yellow;
+    margin-left: 39%;
+}
+
+h3 {
+    color: white;
+    font-size: 30px;
+    margin-top: 0;
+    margin-left: 40%;
+    font-size: 30px;
+}
+
+h4 {
+    color: green;
+    margin-left: 54%;
+    font-size: 20px;
+}
+
+.btn {
+    width: 70px;
+    height: 30px;
+    margin-left: 54%;
+    background-color: grey;
+    border-radius: 10px;
+    border-color: grey;
+}
+
+.dayto {
+    margin-top: 4%;
+    margin-left: 0;
+    width: 300px;
+    height: 440px;
+    left: 195px;
+    top: 270px;
+}
+
+.box2 {
+    margin-top: 46%;
+    position: absolute;
+    left: 2%;
+    width: 25%;
+    height: 45%;
+    background-color: #3D3C42;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+#text1 {
+    margin-top: 2%;
+    margin-left: 6%;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+}
+
+#text2 {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 20%;
+    font-family: 'Dancing Script', cursive;
+    color: green;
+    font-size: 25px;
+}
+
+#text3 {
+    margin-top: 2%;
+    margin-left: 6%;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+}
+
+#text4 {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 20%;
+    font-family: 'Dancing Script', cursive;
+    color: green;
+    font-size: 25px;
+}
+
+#text5 {
+    margin-top: 2%;
+    margin-left: 6%;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+}
+
+#text6 {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 20%;
+    font-family: 'Dancing Script', cursive;
+    color: green;
+    font-size: 25px;
+}
+
+.gmaster {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 97%;
+}
+
+.box3 {
+    margin-top: 46%;
+    position: absolute;
+    left: 38%;
+    width: 25%;
+    height: 45%;
+    background-color: #3D3C42;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+
+
+.kunit {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 97%;
+}
+
+.box4 {
+    margin-top: 46%;
+    position: absolute;
+    left: 73%;
+    width: 25%;
+    height: 45%;
+    background-color: #3D3C42;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.newo {
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 97%;
+}
+
+#box5 {
+    margin-top: 80%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: #3D3C42;
+    position: absolute;
+    align-items: center;
+}
